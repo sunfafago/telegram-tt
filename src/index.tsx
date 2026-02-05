@@ -25,6 +25,7 @@ import { checkAndAssignPermanentWebVersion } from './util/permanentWebVersion';
 import { onBeforeUnload } from './util/schedulers';
 import initTauriApi from './util/tauri/initTauriApi';
 import setupTauriListeners from './util/tauri/setupTauriListeners';
+import initZeusBridge from './util/zeus/initZeusBridge';
 import updateWebmanifest from './util/updateWebmanifest';
 
 import App from './components/App';
@@ -66,6 +67,8 @@ async function init() {
 
   await initGlobal();
   getActions().init();
+
+  initZeusBridge();
 
   getActions().updateShouldEnableDebugLog();
   getActions().updateShouldDebugExportedSenders();
